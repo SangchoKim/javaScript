@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Click to add</button>
+    <script>
+      const button = document.querySelector("button");
+      button.addEventListener("click", () => {
+        const element = document.createElement("h1");
+        document.body.appendChild(element);
+        element.style.color = "red";
+        element.innerText = "hello";
+      });
+
+      // Event Loop 순서
+      // CallStack -> Render(Request Animation Frame, RenderTree, Layout, Paint)
+      // -> Microtask Queue -> Task Queue
+
+      // * Event loop는 계속 빙글빙글 돌고 있음
+      // 1. WebAPI에 EventListener 등록
+      // 2. click 시 해당 콜백 함수 Task Queue로 이동
+      // 3. Call Stack이 비어있다면 Task Queue에서 Call Stack으로 이동(1개만)
+      // 4. Callback에 있는 모든 부분 실행
+      // 5. 실행이 끝나면 Render쪽에서 해당 부분 업데이트
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Let's dance</button>
+    <div class="box"></div>
+    <script>
+      const button = document.querySelector("button");
+      const box = document.querySelector(".box");
+      button.addEventListener("click", () => {
+        box.style.transition = "transform 1s ease-in";
+        box.style.transform = "translateX(800px)";
+        box.style.transform = "translateX(500px)";
+        box.style.backgroundColor = "blue";
+        box.style.backgroundColor = "orange";
+        box.style.backgroundColor = "yellow";
+
+        // 이벤트 리스너에서 받은 콜백은  태스크 큐에서 기다렸다가 콜 스택 내에 동작할 함수가 었을 때 실행이 됩니다. 콜 스택에 들어온 함수가 완전히 끝날 때까지 이벤트 루프는 계속 지켜보고 있습니다. 이 때 브라우저 화면은 업데이트가 안된 상황입니다. 코드가 끝났을 떄 현재 마지막으로 적용된 부분(transform, backgroundColor)만 렌더링 트리에 적용이 되고 레이아웃과 페인트를 거쳐 브라우저에 업데이트 됩니다.
+      });
+    </script>
+  </body>
+</html>

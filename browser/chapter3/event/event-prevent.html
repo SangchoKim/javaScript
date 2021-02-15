@@ -27,14 +27,29 @@
     <div></div>
     <div></div>
     <script>
-      document.addEventListener('wheel', event => {
-        console.log('scrolling');
+      /**
+         event.preventDefault(); 브라우저에서 기본적으로 발생하는 동작을 취소 
+
+         BUT passive한 이벤트에서는 event.preventDefault() 작동 X
+         ONLY active한 이벤트에서만 event.preventDefault() 작동 O
+
+         IF passive한 이벤트에서 event.preventDefault() 사용하고 싶다면
+         Option에 passive를 false로 바꾸기 
+
+         document.addEventListener('wheel', event => {
+           console.log('scrolling');
+          event.preventDefault();
+        },{passive:false});
+      
+      */
+      document.addEventListener("wheel", (event) => {
+        console.log("scrolling");
         event.preventDefault();
       });
-      const checkbox = document.querySelector('input');
-      checkbox.addEventListener('click', event => {
+      const checkbox = document.querySelector("input");
+      checkbox.addEventListener("click", (event) => {
         // long
-        console.log('checked');
+        console.log("checked");
         event.preventDefault();
       });
     </script>

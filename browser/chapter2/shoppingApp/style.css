@@ -20,7 +20,7 @@ body {
 .list {
   width: 400px;
   margin: auto;
-  background-color: white;
+  background-color: lightgray;
   border-radius: 20px;
 }
 
@@ -57,7 +57,7 @@ header {
 .item__divider {
   width: 90%;
   height: 1px;
-  background-color: lightgray;
+  background-color: white;
   margin: auto;
 }
 

@@ -9,7 +9,7 @@ export default class Field {
     this.bugCount = bugCount;
     this.field = document.querySelector(".game__field");
     this.fieldRect = this.field.getBoundingClientRect();
-    this.field.addEventListener("click", this.onClick);
+    this.field.addEventListener("click", this.onClick.bind(this));
   }
 
   init() {
@@ -47,7 +47,6 @@ export default class Field {
       // 당근
       target.remove();
       playSound(carrotSound);
-      console.log(this);
       this.onItemClick && this.onItemClick("carrot");
     } else if (target.matches(".bug")) {
       // 벌레

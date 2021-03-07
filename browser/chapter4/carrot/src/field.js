@@ -1,7 +1,12 @@
 "use strict";
-import * as sound from "./sound.js";
 
 const CARROT_SIZE = 110;
+import * as sound from "./sound.js";
+
+export const ItemType = Object.freeze({
+  carrot: "carrot",
+  bug: "bug",
+});
 
 export default class Field {
   constructor(carrortCount, bugCount) {
@@ -14,8 +19,8 @@ export default class Field {
 
   init() {
     this.field.innerHTML = "";
-    this._addItem("carrot", this.carrortCount, "img/carrot.png");
-    this._addItem("bug", this.bugCount, "img/bug.png");
+    this._addItem(ItemType.carrot, this.carrortCount, "img/carrot.png");
+    this._addItem(ItemType.bug, this.bugCount, "img/bug.png");
   }
 
   setClickLister(onItemClick) {
@@ -47,11 +52,11 @@ export default class Field {
       // 당근
       target.remove();
       sound.palyCarrot();
-      this.onItemClick && this.onItemClick("carrot");
+      this.onItemClick && this.onItemClick(ItemType.carrot);
     } else if (target.matches(".bug")) {
       // 벌레
 
-      this.onItemClick && this.onItemClick("bug");
+      this.onItemClick && this.onItemClick(ItemType.bug);
     }
   };
 }
